@@ -4,6 +4,7 @@ import 'package:gps_camera_app/pages/camera_page.dart';
 import 'package:gps_camera_app/pages/location_page.dart';
 import 'package:gps_camera_app/pages/route_page.dart';
 import 'package:gps_camera_app/services/geolocator_service.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,7 +37,16 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    geolocatorService.checkPermission();
+    verificarPermisos();
+  }
+
+  Future<void> verificarPermisos() async {
+    await geolocatorService.checkPermission();
+    if (await Permission.camera.request().isGranted) {
+      print("Tiene permiso");
+    } else {
+      print("No tiene permiso");
+    }
   }
 
   @override

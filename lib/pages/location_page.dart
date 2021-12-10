@@ -21,7 +21,7 @@ class _LocationPageState extends State<LocationPage> {
           children: <Widget>[
             geoLocatorController.latitude == ""
                 ? const CircularProgressIndicator()
-                : Text("Location:" +
+                : Text("Ubicación: " +
                     geoLocatorController.latitude +
                     " " +
                     geoLocatorController.longitude),

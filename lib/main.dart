@@ -5,7 +5,8 @@ import 'package:gps_camera_app/pages/home_page.dart';
 import 'package:get/get.dart';
 import 'package:gps_camera_app/services/geolocator_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Get.lazyPut<GeolocatorService>(() => GeolocatorService());
   Get.lazyPut<GeoLocatorController>(() => GeoLocatorController());
   Get.lazyPut<MapController>(() => MapController());
