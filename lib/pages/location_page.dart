@@ -27,11 +27,10 @@ class _LocationPageState extends State<LocationPage> {
                     geoLocatorController.longitude),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () => geoLocatorController.getCurrentLocation(),
-                color: Colors.blue,
                 child: const Text(
-                  "Get Location",
+                  "Mostrar Ubicación",
                   style: TextStyle(color: Colors.white),
                 ),
               ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gps_camera_app/pages/camera_page.dart';
 import 'package:gps_camera_app/pages/location_page.dart';
 import 'package:gps_camera_app/pages/route_page.dart';
+import 'package:gps_camera_app/services/geolocator_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  GeolocatorService geolocatorService = Get.find();
+
   // Atributo
   int _selectIndex = 0;
   // Controlador de autenticacion
@@ -27,6 +31,12 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    geolocatorService.checkPermission();
   }
 
   @override

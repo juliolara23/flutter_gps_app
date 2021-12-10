@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gps_camera_app/controllers/geolocator_controller.dart';
+import 'package:gps_camera_app/controllers/googlemaps_controller.dart';
 import 'package:gps_camera_app/pages/home_page.dart';
 import 'package:get/get.dart';
 import 'package:gps_camera_app/services/geolocator_service.dart';
@@ -7,6 +8,7 @@ import 'package:gps_camera_app/services/geolocator_service.dart';
 void main() {
   Get.lazyPut<GeolocatorService>(() => GeolocatorService());
   Get.lazyPut<GeoLocatorController>(() => GeoLocatorController());
+  Get.lazyPut<MapController>(() => MapController());
   runApp(MyApp());
 }
 
